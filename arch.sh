@@ -33,7 +33,7 @@ cat > $bin <<- EOM
 echo " "
 echo " "
 echo " "
-echo "如果您是第一次启动 Arch Linux，您应该运行以下命令： chmod 755 && ./additional.sh , 这将修复pacman-key和network问题。"
+echo "如果您是第一次启动 Arch Linux，您应该运行以下命令： chmod 755 additional.sh && ./additional.sh , 这将修复pacman-key和network的相关问题。"
 echo " "
 echo " "
 echo " "
@@ -73,7 +73,7 @@ else
 fi
 EOM
 
-echo "设置pulseaudio，以便您可以在distro中播放音乐。"
+echo "正在设置pulseaudio，以便您可以在distro中播放音乐。"
 
 pkg install pulseaudio -y
 
@@ -94,10 +94,10 @@ echo "fixing shebang of $bin"
 termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
-echo "删除映像文件以腾出一些空间"
+echo "正在删除映像文件以清理多余空间"
 rm $tarball
 echo "您现在可以使用 ./${bin} 脚本启动 Arch Linux"
-echo "首次准备附加组件，请稍候..."
+echo "为首次启动准备附加组件中，请稍候..."
 wget "https://sourceforge.net/projects/anotherday99/files/resolv.conf" -P arch-fs/root
 wget "https://sourceforge.net/projects/anotherday99/files/additional.sh" -P arch-fs/root
 echo "完成"
